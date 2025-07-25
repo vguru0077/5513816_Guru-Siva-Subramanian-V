@@ -6,7 +6,7 @@
 
 ---
 
-## 📄 Git Certificate (Image)
 
-![Git Certificate](Github_certificate/git_certificate.png)
+## 🖼️ Git Certificate
 
+![Git Certificate](GIthub_certificate/git_certicate.png)
