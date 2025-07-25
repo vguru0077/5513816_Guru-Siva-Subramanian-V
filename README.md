@@ -1,16 +1,11 @@
-# 5513816_Guru-Siva-Subramanian-V
-# Project Title
+# 📁 Certificate Previews
 
-This repository contains certificate for the following courses to be completed.
+## 📸 Agile Certificate (Image)
 
----
-
-## 📷 Image Preview
-
-![Agile Certificate]("C:/Users/vguru/OneDrive/Desktop/New folder/5513816_Guru-Siva-Subramanian-V/SDLC/Agile.jpg")
+![Agile Certificate](SDLC/Agile.jpg)
 
 ---
 
-## 📄 Image Preview
+## 📄 Git Certificate (Image)
 
-[Git_Certificate]("C:/Users/vguru/OneDrive/Desktop/New folder/5513816_Guru-Siva-Subramanian-V/GIthub_certificate/git_certicate.png")
+![Git Certificate](Github_certificate/git_certificate.png)
