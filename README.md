@@ -10,3 +10,6 @@
 ## 🖼️ Git Certificate
 
 ![Git Certificate](GIthub_certificate/git_certicate.png)
+
+## 📸 C Certificate
+![C Certificate](C_Certificate/C.jpg)
