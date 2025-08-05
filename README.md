@@ -12,6 +12,3 @@
 
 ---
 
-## 📸 C Certificate
-
-<img src="C_Certificate/C.jpg" alt="C Certificate" width="800"/>
