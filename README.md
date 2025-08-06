@@ -1,4 +1,4 @@
-# 📁 Certificate Previews
+
 
 ## 📸 Agile Certificate (Image)
 
