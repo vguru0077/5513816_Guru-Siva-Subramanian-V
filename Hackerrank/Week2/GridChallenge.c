@@ -13,23 +13,58 @@ char* readline();
 char* ltrim(char*);
 char* rtrim(char*);
 
-long parse_long(char*);
+int parse_int(char*);
 
 /*
- * Complete the 'sumXor' function below.
+ * Complete the 'gridChallenge' function below.
  *
- * The function is expected to return a LONG_INTEGER.
- * The function accepts LONG_INTEGER n as parameter.
+ * The function is expected to return a STRING.
+ * The function accepts STRING_ARRAY grid as parameter.
  */
 
-long sumXor(long n) {
-    if(n==0) return 1;
-    int bits=0;
-    while (n){
-        if((n&1)==0)bits++;
-            n>>=1;
+/*
+ * To return the string from the function, you should either do static allocation or dynamic allocation
+ *
+ * For example,
+ * char* return_string_using_static_allocation() {
+ *     static char s[] = "static allocation of string";
+ *
+ *     return s;
+ * }
+ *
+ * char* return_string_using_dynamic_allocation() {
+ *     char* s = malloc(100 * sizeof(char));
+ *
+ *     s = "dynamic allocation of string";
+ *
+ *     return s;
+ * }
+ *
+ */
+char* gridChallenge(int grid_count, char** grid) {
+    for (int i=0;i<grid_count;i++){
+        int l=strlen(grid[i]);
+        for(int j=0;j<l-1;j++){
+            for (int k=0;k<l-j-1;k++){
+                if(grid[i][k]>grid[i][k+1]){
+                    char temp=grid[i][k];
+                    grid[i][k]=grid[i][k+1];
+                    grid[i][k+1]=temp;
+                }
+            }
+        }
     }
-    long res=1L<<bits;
+    for (int col=0;col<strlen(grid[0]);col++){
+        for( int row=0;row<grid_count-1;row++){
+            if(grid[row][col]>grid[row+1][col]){
+                char* res=malloc(3*sizeof(char));
+                strcpy(res,"NO");
+                return res;
+            }
+        }
+    }
+    char* res=malloc(4*sizeof(char));
+    strcpy(res,"YES");
     return res;
 }
 
@@ -37,11 +72,23 @@ int main()
 {
     FILE* fptr = fopen(getenv("OUTPUT_PATH"), "w");
 
-    long n = parse_long(ltrim(rtrim(readline())));
+    int t = parse_int(ltrim(rtrim(readline())));
 
-    long result = sumXor(n);
+    for (int t_itr = 0; t_itr < t; t_itr++) {
+        int n = parse_int(ltrim(rtrim(readline())));
 
-    fprintf(fptr, "%ld\n", result);
+        char** grid = malloc(n * sizeof(char*));
+
+        for (int i = 0; i < n; i++) {
+            char* grid_item = readline();
+
+            *(grid + i) = grid_item;
+        }
+
+        char* result = gridChallenge(n, grid);
+
+        fprintf(fptr, "%s\n", result);
+    }
 
     fclose(fptr);
 
@@ -136,9 +183,9 @@ char* rtrim(char* str) {
     return str;
 }
 
-long parse_long(char* str) {
+int parse_int(char* str) {
     char* endptr;
-    long value = strtol(str, &endptr, 10);
+    int value = strtol(str, &endptr, 10);
 
     if (endptr == str || *endptr != '\0') {
         exit(EXIT_FAILURE);
